@@ -20,12 +20,23 @@ ul{
 }
 
 .app-title{
+    display: inline-block;
     height: 100%;
     color: #E0F7FA;
     font-size: 32px;
     line-height: 64px;
     vertical-align: middle;
     margin-bottom: 0;
+}
+
+.info{
+    display: inline-block;
+    float: right;
+}
+
+.app-wrapper{
+    width: 100vw;
+    padding: 0 20px;
 }
 
 
@@ -42,8 +53,7 @@ input:focus {
 
 .input-wrapper {
     position: relative;
-    max-width: 400px;
-    width: 400px;
+    max-width: 440px;
     margin: 30px auto 0;
 }
 
@@ -115,6 +125,14 @@ input:focus ~ .bar, input:valid ~ .bar {
 #list{
     max-width: 400px;
     margin: 0 auto;
+}
+
+.todo-element{
+    background: #E0F7FA;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    border-radius: 2px;
 }
 
 
