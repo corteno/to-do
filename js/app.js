@@ -14,3 +14,9 @@ document.body.onkeyup = function(e){
         newItem();
     }
 }
+
+function removeItem(e){
+    e.target.parentElement.removeChild(e.target);
+}
+
+

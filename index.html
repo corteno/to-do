@@ -4,12 +4,19 @@
 	<meta charset="UTF-8">
 	<title>To-Do list</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" href="css/bootstrap.css" />
+
 	<link rel="stylesheet" href="css/style.css" />
 
 </head>
 <body>
-<input type="text" id="input" placeholder="What needs to be done?">
+<div class="input-wrapper">
+	<input type="text" id="input" required>
+	<label>What needs to be done?</label>
+	<div class="bar"></div>
+</div>
+
 <ul id="list"></ul>
 
 

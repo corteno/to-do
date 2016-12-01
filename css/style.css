@@ -1,4 +1,87 @@
-input{
+body {
+    font-family: RobotoRegular !important;
+}
+
+input {
     display: block;
     margin: 0 auto;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-wrapper {
+    position: relative;
+    max-width: 400px;
+    width: 400px;
+    margin: 30px auto 0;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid green;
+}
+
+#input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #999;
+}
+
+.bar {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    background: red;
+
+    -webkit-transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all ;
+    -ms-transition: 0.2s ease all ;
+    -o-transition: 0.2s ease all ;
+    transition: 0.2s ease all ;
+}
+
+label {
+    color: #999;
+    font-size: 18px;
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    font-family: RobotoRegular !important;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    font-size: 16px;
+    /*    color: #5264AE;*/
+    font-family: RobotoRegular !important;
+}
+
+input:focus ~ .bar, input:valid ~ .bar {
+    width: 100%;
+
+}
+
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url('../fonts/Roboto-Regular.ttf');
 }
