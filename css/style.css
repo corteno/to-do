@@ -1,5 +1,6 @@
 body {
     font-family: RobotoRegular !important;
+    background-color: #f3f3f3;
 }
 
 ul{
@@ -7,8 +8,11 @@ ul{
 }
 
 .main-wrapper{
+    position: relative;
     margin: 0 auto;
     max-width: 450px;
+    height: 100vh;
+
 }
 
 .title-wrapper{
@@ -32,11 +36,24 @@ ul{
 .info{
     display: inline-block;
     float: right;
+    color: #E0F7FA;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    margin: 12px;
+    text-align: center;
+    /*padding: 8px;*/
+    border: 3px solid #E0F7FA;
+    border-radius: 24px;
+
+    cursor: pointer;
 }
 
 .app-wrapper{
     width: 100%;
+    height: 100%;
     padding: 0 20px;
+
 }
 
 
@@ -45,6 +62,7 @@ input {
     display: block;
     margin: 0 auto;
     border: none;
+    background: transparent;
 }
 
 input:focus {
@@ -59,6 +77,7 @@ input:focus {
 
 li {
     list-style: none;
+    cursor: pointer;
 }
 
 input {
@@ -128,11 +147,38 @@ input:focus ~ .bar, input:valid ~ .bar {
 }
 
 .todo-element{
-    background: #E0F7FA;
+    background: #fff;
     padding: 15px;
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     border-radius: 2px;
+}
+
+footer{
+    width: 100%;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    color: #E0F7FA;
+    background: #00BCD4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    text-align: center;
+
+    -webkit-transition:0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -ms-transition: 0.2s ease all;
+    -o-transition: 0.2s ease all;
+    transition: 0.2s ease all;
+}
+
+footer p{
+    line-height: 42px;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.hide-footer{
+    bottom: -42px;
 }
 
 
