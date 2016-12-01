@@ -2,6 +2,34 @@ body {
     font-family: RobotoRegular !important;
 }
 
+ul{
+    padding-left: 0;
+}
+
+.main-wrapper{
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+.title-wrapper{
+    height: 64px;
+    padding-left: 20px;
+    background: #00BCD4;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.app-title{
+    height: 100%;
+    color: #E0F7FA;
+    font-size: 32px;
+    line-height: 64px;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+
+/* INPUT STYLE */
 input {
     display: block;
     margin: 0 auto;
@@ -28,7 +56,7 @@ input {
     padding: 10px 0;
     display: block;
     border: none;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #00BCD4;
 }
 
 input:focus {
@@ -39,7 +67,8 @@ input:focus {
 #input {
     width: 100%;
     border: none;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #00BCD4;
+    margin-bottom: 30px;
 }
 
 .bar {
@@ -47,7 +76,7 @@ input:focus {
     width: 0%;
     height: 2px;
     bottom: 0;
-    background: red;
+    background: #00BCD4;
 
     -webkit-transition: 0.2s ease all;
     -moz-transition: 0.2s ease all ;
@@ -57,7 +86,7 @@ input:focus {
 }
 
 label {
-    color: #999;
+    color: #00BCD4;
     font-size: 18px;
     position: absolute;
     pointer-events: none;
@@ -80,6 +109,15 @@ input:focus ~ .bar, input:valid ~ .bar {
     width: 100%;
 
 }
+
+/* INPUT STYLE END */
+
+#list{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
 
 @font-face {
     font-family: 'RobotoRegular';
