@@ -1,5 +1,5 @@
 body {
-    font-family: RobotoRegular !important;
+    font-family: RobotoRegular;
     background-color: #f3f3f3;
 }
 
@@ -16,7 +16,7 @@ ul{
 }
 
 .title-wrapper{
-    height: 64px;
+    height: 80px;
     padding-left: 20px;
     background: #00BCD4;
     text-align: left;
@@ -27,10 +27,24 @@ ul{
     display: inline-block;
     height: 100%;
     color: #E0F7FA;
-    font-size: 32px;
-    line-height: 64px;
-    vertical-align: middle;
+    font-size: 24px;
+    /*line-height: 64px;*/
+    padding-top: 12px;
     margin-bottom: 0;
+}
+
+.day{
+    font-family: RobotoMedium;
+}
+
+.date{
+    font-family: RobotoLight;
+}
+
+.month{
+    font-size: 14px;
+    color: #B2EBF2;
+    margin-top: -4px;
 }
 
 .info{
@@ -40,7 +54,7 @@ ul{
     font-size: 24px;
     width: 40px;
     height: 40px;
-    margin: 12px;
+    margin: 20px;
     text-align: center;
     /*padding: 8px;*/
     border: 3px solid #E0F7FA;
@@ -186,4 +200,19 @@ footer p{
 @font-face {
     font-family: 'RobotoRegular';
     src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoThin';
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoLight';
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('../fonts/Roboto-Medium.ttf');
 }
