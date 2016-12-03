@@ -2,6 +2,9 @@ body {
     font-family: RobotoRegular;
     background-color: #f3f3f3;
 }
+p{
+    margin-bottom: 0;
+}
 
 ul{
     padding-left: 0;
@@ -91,7 +94,7 @@ input:focus {
 
 li {
     list-style: none;
-    cursor: pointer;
+
 }
 
 input {
@@ -112,6 +115,7 @@ input:focus {
     border: none;
     border-bottom: 1px solid #00BCD4;
     margin-bottom: 30px;
+    color: #006064;
 }
 
 .bar {
@@ -156,7 +160,7 @@ input:focus ~ .bar, input:valid ~ .bar {
 /* INPUT STYLE END */
 
 #list{
-    max-width: 400px;
+    max-width: 410px;
     margin: 0 auto;
 }
 
@@ -166,6 +170,72 @@ input:focus ~ .bar, input:valid ~ .bar {
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     border-radius: 2px;
+
+}
+
+.todo-element p{
+    display: inline-block;
+    max-width: 300px;
+    overflow: visible;
+    color: #006064;
+}
+
+.delete-button{
+    position: relative;
+    float: right;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    /*background: url('../img/trash.svg');*/
+
+}
+
+.delete-button svg{
+    fill: #d6d6d6;
+    -webkit-transition:0.1s ease all;
+    -moz-transition: 0.1s ease all ;
+    -ms-transition: 0.1s ease all ;
+    -o-transition: 0.1s ease all ;
+    transition: 0.1s ease all ;
+}
+
+.delete-button:hover svg{
+    fill: #ff0000;
+}
+
+.delete-button::before, .delete-button::after{
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -2px;
+    background: #EF9A9A;
+}
+
+.delete-button:hover::after, .delete-button:hover::before{
+    background: #F44336;
+}
+
+.delete-button:active::after, .delete-button:active::before{
+    display: #C62828;
+}
+
+.delete-button::before{
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.delete-button::after{
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 footer{

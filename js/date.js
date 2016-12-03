@@ -50,7 +50,7 @@ function displayDate(){
     title.appendChild(dateSpan);
     title.appendChild(monthDiv);
 
-    console.log(appendEnd(1));
+
 
 
 

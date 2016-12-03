@@ -2,12 +2,20 @@ function newItem(){
     var item = document.getElementById('input').value;
     var ul = document.getElementById('list');
     var li = document.createElement('li');
+    var p = document.createElement('p');
+    var div = document.createElement('div');
+    var deleteButton = document.createTextNode('');
 
     li.className = "todo-element";
-    li.appendChild(document.createTextNode(item));
+    li.appendChild(p);
+    p.appendChild(document.createTextNode(item));
+    li.appendChild(div);
+    div.className = 'delete-button';
+    div.appendChild(deleteButton);
+
     ul.appendChild(li);
     document.getElementById('input').value ="";
-    li.onclick = removeItem;
+    div.onclick = removeItem;
 }
 
 document.body.onkeyup = function(e){
@@ -17,7 +25,7 @@ document.body.onkeyup = function(e){
 }
 
 function removeItem(e){
-    e.target.parentElement.removeChild(e.target);
+    e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 }
 
 
