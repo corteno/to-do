@@ -15,13 +15,14 @@ function displayDate(){
     ];
 
     var days = [
+        'Sunday',
         'Monday',
         'Tuesday',
         'Wednesday',
         'Thursday',
         'Friday',
-        'Saturday',
-        'Sunday'
+        'Saturday'
+
     ];
 
     var title = document.getElementById('app-title');
