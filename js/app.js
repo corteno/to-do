@@ -1,4 +1,5 @@
 var toDoElements = new Array();
+var emptyInputError = "Can't add empty to-do!";
 
 
 
@@ -23,22 +24,6 @@ var getCookies = function(){
     }
 
 };
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(',');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
 
 if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)){
     getCookies();
@@ -75,10 +60,19 @@ function newItem(){
         document.getElementById('input').value ="";
         div.onclick = removeItem;
     } else {
-        console.log("empty");
-        document.getElementById('input').value ="";
         //Make Popup notification in bottom corner
+        //console.log("empty");
+        document.getElementById('input').value ="";
+        document.getElementById('tooltip').className = "tooltip-wrapper box-shadow";
+        document.getElementById('tooltip-close').onclick = closeToolTip;
+        document.getElementById('tooltip-content').innerHTML = emptyInputError;
+
     }
+}
+
+function closeToolTip(e){
+    console.log("close tooltip");
+    e.target.parentElement.parentElement.className = "hide-element tooltip-wrapper box-shadow";
 }
 
 function newItemFromCookie(element){
@@ -107,7 +101,12 @@ function newItemFromCookie(element){
 }
 
 function validInput(string){
-    return /^(?!\s)/.test(string);
+    if(string.length !== 0 && /^(?!\s)/.test(string)){
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 function addToCookies(element){
