@@ -1,6 +1,8 @@
 body {
     font-family: RobotoRegular;
     background-color: #f3f3f3;
+    display: flex;
+    /*flex: 0 0 100%;*/
 }
 p{
     margin-bottom: 0;
@@ -15,6 +17,7 @@ ul{
     margin: 0 auto;
     /*max-width: 450px;*/
     height: 100vh;
+    flex: 0 0 100%;
 
 }
 
@@ -166,7 +169,7 @@ input:focus ~ .bar, input:valid ~ .bar {
 
 .todo-element{
     background: #fff;
-    padding: 15px;
+    padding: 18px;
     margin-bottom: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     border-radius: 2px;
@@ -197,6 +200,10 @@ input:focus ~ .bar, input:valid ~ .bar {
     -ms-transition: 0.1s ease all ;
     -o-transition: 0.1s ease all ;
     transition: 0.1s ease all ;
+}
+
+.delete-svg{
+    fill: #000 !important;
 }
 
 .delete-button:hover svg{

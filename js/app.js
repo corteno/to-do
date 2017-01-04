@@ -5,6 +5,9 @@ function newItem(){
     var p = document.createElement('p');
     var div = document.createElement('div');
     var deleteButton = document.createTextNode('');
+    var deleteSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+
 
     li.className = "todo-element";
     li.appendChild(p);
@@ -12,8 +15,8 @@ function newItem(){
     li.appendChild(div);
     div.className = 'delete-button';
     div.appendChild(deleteButton);
-
     ul.appendChild(li);
+
     document.getElementById('input').value ="";
     div.onclick = removeItem;
 }
