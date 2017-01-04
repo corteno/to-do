@@ -28,6 +28,7 @@ document.body.onkeyup = function(e){
 }
 
 function removeItem(e){
+
     e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 }
 
