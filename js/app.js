@@ -28,8 +28,13 @@ document.body.onkeyup = function(e){
 }
 
 function removeItem(e){
+    var removeDelay = 200; //in ms
+    e.target.parentElement.className = "hide-element";
 
-    e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+    setTimeout(function () {
+        e.target.parentElement.parentElement.removeChild(e.target.parentElement);
+    }, removeDelay);
+    //e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 }
 
 
