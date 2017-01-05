@@ -25,7 +25,7 @@ ul{
 
 .title-wrapper{
     height: 80px;
-    padding-left: 20px;
+    padding: 0 20px;
     background: #00BCD4;
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
@@ -213,6 +213,17 @@ input:focus ~ .bar, input:valid ~ .bar {
 
 }
 
+.delete-svg{
+    position: relative;
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin-top: 22px;
+    cursor: pointer;
+    fill: #fff !important;
+}
+
+
 .delete-button svg{
     fill: #d6d6d6;
     -webkit-transition:0.1s ease all;
@@ -222,9 +233,6 @@ input:focus ~ .bar, input:valid ~ .bar {
     transition: 0.1s ease all ;
 }
 
-.delete-svg{
-    fill: #000 !important;
-}
 
 .delete-button:hover svg{
     fill: #ff0000;
