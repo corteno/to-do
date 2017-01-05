@@ -58,6 +58,7 @@ function newItem(){
         console.log(document.cookie);
 
         li.className = "todo-element";
+        p.onclick = editToDo;
         li.appendChild(p);
         p.appendChild(document.createTextNode(item));
         li.appendChild(div);
