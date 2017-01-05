@@ -1,7 +1,7 @@
 var toDoElements = new Array();
 var emptyInputError = "Can't add empty to-do!";
 
-
+//=================== COOKIES ==========================
 
 var getCookies = function(){
     var cookies = document.cookie;
@@ -18,9 +18,6 @@ var getCookies = function(){
             newItemFromCookie(toDoElement);
         }
 
-
-
-
     }
 
 };
@@ -31,7 +28,18 @@ if (document.readyState === "complete" || (document.readyState !== "loading" && 
     document.addEventListener("DOMContentLoaded", getCookies);
 }
 
+function addToCookies(element){
+    toDoElements.push(element);
+    cookiefy();
+}
 
+function cookiefy(){
+    var arrayToCookies = toDoElements;
+    arrayToCookies = JSON.stringify(arrayToCookies);
+    document.cookie = arrayToCookies;
+}
+
+//=================== COOKIES END ==========================
 
 
 function newItem(){
@@ -87,7 +95,7 @@ function newItemFromCookie(element){
     //Puts the element into an array for cookies
     addToCookies(item);
     //console.log(document.cookie);
-
+    p.onclick = editToDo;
     li.className = "todo-element";
     li.appendChild(p);
     p.appendChild(document.createTextNode(item));
@@ -109,21 +117,81 @@ function validInput(string){
 
 }
 
-function addToCookies(element){
-    toDoElements.push(element);
-    cookiefy();
+//=================== EDIT TO-DO ELEMENT ==========================
+
+function editToDo(e){
+    var toDoContent = e.target.innerHTML;
+    var editInput = createNode('input', toDoContent);
+    editInput.className = "editInput";
+    editInput.id = "active-edit-input";
+    editInput.setAttribute('data-oc', toDoContent);
+    /*editInput.value = toDoContent;
+    editInput.addEventListener('blur', editFocusLoss, false);*/
+
+    e.target.parentNode.replaceChild(editInput, e.target);
+    editInput.focus();
+
+    //console.log(e.target);
+    //e.target.appendChild(editInput);
+
+
+
 }
 
-function cookiefy(){
-    var arrayToCookies = toDoElements;
-    arrayToCookies = JSON.stringify(arrayToCookies);
-    document.cookie = arrayToCookies;
+function editFocusLoss(e){
+    //e.target.value works, because it's an input
+    var editInput = e.target;
+
+    //console.log(editInput.value);
+    //editInput.value = originalContent
+    replaceElement(editInput, editInput.getAttribute('data-oc'));
+
 }
+
+function replaceElement(replaceable, originalContent){
+    var toDoContent = createNode('p', originalContent);
+    /*toDoContent.onclick = editToDo;
+    toDoContent.innerHTML = originalContent;*/
+    replaceable.parentNode.replaceChild(toDoContent, replaceable);
+    //console.log("Replace: " + replaceable.value);
+}
+
+function saveEdit(e){
+    var index = toDoElements.indexOf(e.getAttribute('data-oc'));
+    var newContent = createNode('p', e.value);
+    toDoElements[index] = newContent.innerHTML;
+
+    e.removeEventListener('blur', editFocusLoss, false)
+    e.parentNode.replaceChild(newContent, e);
+
+    addToCookies(newContent);
+
+    //console.log("save edit: " + e.value + " original content: " + e.getAttribute('data-oc'));
+}
+
+function createNode(type, content){
+    var node = document.createElement(type);
+
+    if(type === 'input'){
+        node.addEventListener('blur', editFocusLoss, false);
+        node.value = content;
+    } else if(type === 'p'){
+        node.innerHTML = content;
+        node.onclick = editToDo;
+    }
+
+    return node;
+
+}
+//=================== EDIT TO-DO ELEMENT END ==========================
+
 
 document.body.onkeyup = function(e){
-    if(e.keyCode == 13){
+    if(e.keyCode == 13 && document.getElementById('input') === document.activeElement){
         newItem();
         //console.log(toDoElements);
+    } else if (e.keyCode == 13 && document.getElementById('active-edit-input') === document.activeElement){
+        saveEdit(e.target);
     }
 }
 
