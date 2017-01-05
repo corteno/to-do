@@ -1,5 +1,6 @@
 var toDoElements = new Array();
 var emptyInputError = "Can't add empty to-do!";
+var emptyEditError = "Can't leave the to-do empty!";
 
 //=================== COOKIES ==========================
 
@@ -55,7 +56,7 @@ function newItem(){
 
         //Puts the element into an array for cookies
         addToCookies(item);
-        console.log(document.cookie);
+        //console.log(document.cookie);
 
         li.className = "todo-element";
         p.onclick = editToDo;
@@ -72,15 +73,20 @@ function newItem(){
         //Make Popup notification in bottom corner
         //console.log("empty");
         document.getElementById('input').value ="";
-        document.getElementById('tooltip').className = "tooltip-wrapper box-shadow";
-        document.getElementById('tooltip-close').onclick = closeToolTip;
-        document.getElementById('tooltip-content').innerHTML = emptyInputError;
+        showToolTip(emptyInputError);
 
     }
 }
 
+function showToolTip(error){
+    document.getElementById('tooltip').className = "tooltip-wrapper box-shadow";
+    document.getElementById('tooltip-close').onclick = closeToolTip;
+    document.getElementById('tooltip-content').innerHTML = error;
+}
+
+
 function closeToolTip(e){
-    console.log("close tooltip");
+    //console.log("close tooltip");
     e.target.parentElement.parentElement.className = "hide-element tooltip-wrapper box-shadow";
 }
 
@@ -158,14 +164,23 @@ function replaceElement(replaceable, originalContent){
 }
 
 function saveEdit(e){
-    var index = toDoElements.indexOf(e.getAttribute('data-oc'));
-    var newContent = createNode('p', e.value);
-    toDoElements[index] = newContent.innerHTML;
 
-    e.removeEventListener('blur', editFocusLoss, false)
-    e.parentNode.replaceChild(newContent, e);
+    if(validInput(e.value)){
+        var index = toDoElements.indexOf(e.getAttribute('data-oc'));
+        var newContent = createNode('p', e.value);
+        toDoElements[index] = newContent.innerHTML;
 
-    addToCookies(newContent);
+        e.removeEventListener('blur', editFocusLoss, false)
+        e.parentNode.replaceChild(newContent, e);
+
+        addToCookies(newContent);
+    } else {
+
+        e.removeEventListener('blur', editFocusLoss, false)
+        e.parentNode.replaceChild(createNode('p', e.getAttribute('data-oc')), e);
+        showToolTip(emptyEditError);
+    }
+
 
     //console.log("save edit: " + e.value + " original content: " + e.getAttribute('data-oc'));
 }
