@@ -232,8 +232,33 @@ function removeItem(e){
 
 function removeAll(){
     var list = document.getElementById('list');
+    var modal = document.getElementById('modal-wrapper');
+    var modalConfirm = document.getElementById('modal-yes');
+    var modalDeny = document.getElementById('modal-no');
 
-    alert('remove all');
+    modal.className = "";
+    modalConfirm.addEventListener("click", confirm, false);
+    modalDeny.addEventListener("click", deny, false);
+
+    
+    function confirm() {
+        while(list.firstChild ){
+            list.removeChild(list.firstChild);
+        }
+        toDoElements = [];
+        cookiefy();
+
+        modal.className = "hide-element";
+        //console.log("confirm");
+    }
+    
+    function deny() {
+
+        modalConfirm.removeEventListener("click", confirm, false);
+        modalDeny.removeEventListener("click", deny, false);
+        modal.className = "hide-element";
+        //console.log("deny");
+    }
 }
 
 
