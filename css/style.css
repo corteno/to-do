@@ -220,7 +220,7 @@ input:focus ~ .bar, input:valid ~ .bar {
     height: 32px;
     margin-top: 22px;
     cursor: pointer;
-    fill: #fff !important;
+    fill: #E0F7FA !important;
 }
 
 

@@ -230,4 +230,10 @@ function removeItem(e){
     //e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 }
 
+function removeAll(){
+    var list = document.getElementById('list');
+
+    alert('remove all');
+}
+
 
