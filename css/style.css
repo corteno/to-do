@@ -223,6 +223,10 @@ input:focus ~ .bar, input:valid ~ .bar {
     fill: #E0F7FA !important;
 }
 
+#delete-svg:hover{
+    fill: #B2EBF2;
+}
+
 
 .delete-button svg{
     fill: #d6d6d6;
