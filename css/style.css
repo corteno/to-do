@@ -95,6 +95,10 @@ input {
     background: transparent;
 }
 
+input:invalid {
+    box-shadow: none;
+}
+
 input:focus {
     outline: none;
 }
